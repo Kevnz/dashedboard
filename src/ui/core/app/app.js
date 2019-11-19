@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Router } from '@reach/router'
-import { NavBar, NavBarBrand, Section } from '@brightleaf/elements'
+import { NavBar, NavBarBrand, Section, Container } from '@brightleaf/elements'
 import { Loading } from 'ui/components/loading'
 import { AuthProvider } from 'ui/core/context/auth'
 import { AppProvider } from 'ui/core/context/app'
@@ -23,13 +23,15 @@ export default () => {
           />
         </NavBar>
         <Section>
-          <React.Suspense fallback={<Loading />}>
-            <Router>
-              <Home path="/" />
-              <About path="/about" />
-              <Contact path="/contact" />
-            </Router>
-          </React.Suspense>
+          <Container>
+            <React.Suspense fallback={<Loading />}>
+              <Router>
+                <Home path="/" />
+                <About path="/about" />
+                <Contact path="/contact" />
+              </Router>
+            </React.Suspense>
+          </Container>
         </Section>
       </AppProvider>
     </AuthProvider>
